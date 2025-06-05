@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lowongan Pekerjaan Kabupaten Gresik - Metode Holograf Detail</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+    :root {
+      --primary-color: #00ffff;
+      --secondary-color: #ff00ff;
+      --background-color: #0a0a20;
+      --text-color: #ccecff;
+      --card-bg: rgba(10, 10, 30, 0.85);
+      --border-glow: 2px solid var(--primary-color);
+      --shadow-glow: 0 0 15px var(--primary-color), 0 0 40px var(--secondary-color);
+      --hover-glow: 0 0 20px 3px var(--secondary-color);
+      --transition-speed: 0.3s;
+      --label-color: #88eeffcc;
+      --font-smooth: antialiased;
+      --radius: 16px;
+      --spacing: 1.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #090919, #1a1a36);
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--text-color);
+      -webkit-font-smoothing: var(--font-smooth);
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      user-select: none;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: var(--shadow-glow);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 5px;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      margin: 0 0 0.5rem;
+      text-shadow:
+        0 0 10px var(--primary-color),
+        0 0 30px var(--secondary-color),
+        0 0 40px var(--secondary-color);
+    }
+
+    header p {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin: 0;
+      text-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 640px;
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(145deg, #11112a, #1c1c3e);
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius);
+      box-shadow:
+        inset 0 0 15px #00ffff80,
+        0 0 30px #ff00ff60;
+      transition: box-shadow var(--transition-speed);
+    }
+    .search-container:hover {
+      box-shadow:
+        inset 0 0 20px #00ffffb0,
+        0 0 50px #ff00ffcc;
+    }
+
+    .search-container input[type="text"] {
+      flex: 1;
+      padding: 0.9rem 1.2rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      outline: none;
+      background: transparent;
+      color: var(--primary-color);
+      text-shadow: 0 0 8px var(--primary-color);
+      box-shadow: inset 0 0 15px #00ffffaa;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      caret-color: var(--secondary-color);
+    }
+    .search-container input[type="text"]::placeholder {
+      color: var(--text-color);
+      opacity: 0.5;
+    }
+    .search-container input[type="text"]:focus {
+      background: rgba(255, 0, 255, 0.15);
+      box-shadow: inset 0 0 25px var(--secondary-color);
+      color: var(--secondary-color);
+      text-shadow: 0 0 15px var(--secondary-color);
+    }
+
+    .search-container button {
+      background: var(--secondary-color);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 0 20px var(--secondary-color),
+        0 0 30px var(--secondary-color);
+      transition: box-shadow var(--transition-speed) ease;
+      color: var(--background-color);
+      font-weight: 700;
+      font-size: 1.4rem;
+      user-select: none;
+      filter: drop-shadow(0 0 2px var(--secondary-color));
+    }
+    .search-container button:hover,
+    .search-container button:focus {
+      box-shadow:
+        0 0 30px 6px var(--secondary-color),
+        0 0 50px 10px var(--secondary-color);
+      outline: none;
+      filter: drop-shadow(0 0 4px var(--secondary-color));
+      transform: scale(1.1);
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing);
+      min-height: 250px;
+      padding-bottom: 3rem;
+    }
+
+    .job-card {
+      background: var(--card-bg);
+      padding: 2rem 2.5rem;
+      border-radius: var(--radius);
+      border: var(--border-glow);
+      box-shadow: var(--shadow-glow);
+      transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+      cursor: pointer;
+      color: var(--text-color);
+      user-select: text;
+      position: relative;
+      overflow: hidden;
+    }
+    .job-card::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background: linear-gradient(60deg, transparent 20%, var(--secondary-color) 50%, transparent 80%);
+      animation: shine 3s linear infinite;
+      opacity: 0.2;
+      pointer-events: none;
+      border-radius: var(--radius);
+      filter: blur(12px);
+      z-index: 0;
+    }
+    @keyframes shine {
+      0% {
+        transform: rotate(45deg) translateX(-100%);
+      }
+      100% {
+        transform: rotate(45deg) translateX(100%);
+      }
+    }
+    .job-card:hover,
+    .job-card:focus-within {
+      box-shadow:
+        0 0 35px 10px var(--secondary-color),
+        0 0 60px 15px var(--secondary-color);
+      border-color: var(--secondary-color);
+      outline: none;
+      transform: translateY(-4px);
+      z-index: 5;
+    }
+
+    .job-card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .job-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary-color);
+      text-shadow:
+        0 0 12px var(--primary-color),
+        0 0 28px var(--secondary-color);
+    }
+
+    .company {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+      text-shadow: 0 0 8px var(--secondary-color);
+    }
+
+    .detail-row {
+      display: flex;
+      gap: 2.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--label-color);
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .detail-item {
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      color: var(--text-color);
+      font-weight: 600;
+      background: rgba(255 255 255 / 0.08);
+      padding: 0.4rem 0.8rem;
+      border-radius: 16px;
+      box-shadow:
+        inset 0 0 8px #00ffffaa,
+        inset 0 0 14px #ff00ffaa;
+      transition: background-color var(--transition-speed);
+    }
+    .detail-item:hover {
+      background: rgba(255 0 255 / 0.15);
+      box-shadow:
+        inset 0 0 12px #ff00ffdd,
+        inset 0 0 22px #00ffffaa;
+    }
+
+    .detail-label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.15rem;
+      text-shadow: 0 0 6px var(--secondary-color);
+      letter-spacing: 0.03em;
+    }
+
+    .job-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 1.1rem;
+      font-weight: 400;
+      max-width: 90ch;
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #4444aaaa;
+      user-select: none;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Scrollbar for WebKit browsers */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #00002266;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--glow-color);
+      border-radius: 10px;
+      box-shadow: 0 0 8px var(--glow-color);
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+      .search-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .search-container input[type="text"],
+      .search-container button {
+        width: 100%;
+        border-radius: var(--radius);
+      }
+      main {
+        max-width: 100%;
+        padding: 0 0;
+      }
+      .detail-row {
+        justify-content: center;
+        gap: 1rem;
+      }
+      .detail-item {
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lowongan Pekerjaan Kabupaten Gresik</h1>
+    <p>Temukan peluang karirmu dengan metode holografik futuristik!</p>
+  </header>
+
+  <div class="search-container" role="search">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Cari pekerjaan, perusahaan, lokasi, tipe, atau gaji..." 
+      aria-label="Kata kunci pencarian lowongan pekerjaan"
+      spellcheck="false"
+      autocomplete="off"
+    />
+    <button id="searchBtn" title="Cari Lowongan" aria-label="Cari lowongan">
+      🔍
+    </button>
+  </div>
+
+  <main id="jobsList" aria-live="polite" aria-relevant="additions">
+    <!-- Job cards populated by JS -->
+  </main>
+
+  <footer>
+    &copy; 2024 Gresik Job Portal - Holographic Style &nbsp;|&nbsp; Developed by BLACKBOXAI
+  </footer>
+
+  <script>
+    const jobs = [
+      {
+        title: "Teknisi Mesin Produksi",
+        company: "PT Petrokimia Gresik",
+        location: "Gresik, Jawa Timur",
+        type: "Full-time",
+        salary: "Rp4.000.000 - Rp5.000.000",
+        description: "Bertanggung jawab atas pemeliharaan dan perbaikan mesin produksi pabrik pupuk.",
+      },
+      {
+        title: "Marketing Digital",
+        company: "Gresik Creative Media",
+        location: "Gresik, Jawa Timur",
+        type: "Full-time",
+        salary: "Rp3.500.000 - Rp4.500.000",
+        description: "Mengelola kampanye pemasaran digital dan media sosial untuk meningkatkan brand awareness.",
+      },
+      {
+        title: "Staff Administrasi",
+        company: "PT Semen Indonesia (Persero) Tbk.",
+        location: "Gresik, Jawa Timur",
+        type: "Full-time",
+        salary: "Rp3.000.000 - Rp3.800.000",
+        description: "Melaksanakan tugas administratif dan pengarsipan dokumen perusahaan secara rapi dan terorganisir.",
+      },
+      {
+        title: "Operator Forklift",
+        company: "PT DP World Gresik",
+        location: "Gresik, Jawa Timur",
+        type: "Contract",
+        salary: "Rp3.200.000 - Rp4.000.000",
+        description: "Mengoperasikan forklift untuk bongkar muat barang di pelabuhan dan gudang.",
+      },
+      {
+        title: "Desainer Grafis",
+        company: "Ruang Kreatif Gresik",
+        location: "Gresik, Jawa Timur",
+        type: "Part-time",
+        salary: "Rp2.000.000 - Rp3.000.000",
+        description: "Membuat desain materi promosi dan konten visual untuk klien lokal maupun nasional.",
+      },
+      {
+        title: "Pengembang Web Junior",
+        company: "Startup Teknologi Gresik",
+        location: "Gresik, Jawa Timur",
+        type: "Full-time",
+        salary: "Rp4.500.000 - Rp6.000.000",
+        description: "Membangun dan memelihara aplikasi web untuk berbagai produk startup teknologi di Gresik.",
+      }
+    ];
+
+    const jobsListEl = document.getElementById('jobsList');
+    const searchInputEl = document.getElementById('searchInput');
+    const searchBtnEl = document.getElementById('searchBtn');
+
+    function renderJobs(list) {
+      if (list.length === 0) {
+        jobsListEl.innerHTML = '<p style="text-align:center; color:#ff77aa; font-weight:700; font-size:1.2rem;">Tidak ada lowongan yang ditemukan untuk kriteria pencarian Anda.</p>';
+        return;
+      }
+      jobsListEl.innerHTML = list.map(job => `
+        <article class="job-card" tabindex="0" role="article" aria-label="Lowongan pekerjaan ${job.title} di ${job.company}">
+          <h2 class="job-title">${job.title}</h2>
+          <div class="company">${job.company}</div>
+          <div class="detail-row">
+            <div class="detail-item">
+              <span class="detail-label">Lokasi:</span>
+              <span>${job.location}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Tipe:</span>
+              <span>${job.type}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Gaji:</span>
+              <span>${job.salary}</span>
+            </div>
+          </div>
+          <p class="job-description">${job.description}</p>
+        </article>
+      `).join('');
+    }
+
+    function filterJobs() {
+      const keyword = searchInputEl.value.trim().toLowerCase();
+      if (!keyword) {
+        renderJobs(jobs);
+        return;
+      }
+
+      const filtered = jobs.filter(job =>
+        job.title.toLowerCase().includes(keyword) ||
+        job.company.toLowerCase().includes(keyword) ||
+        job.location.toLowerCase().includes(keyword) ||
+        job.type.toLowerCase().includes(keyword) ||
+        job.salary.toLowerCase().includes(keyword) ||
+        job.description.toLowerCase().includes(keyword)
+      );
+
+      renderJobs(filtered);
+    }
+
+    searchInputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        filterJobs();
+      }
+    });
+
+    searchBtnEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      filterJobs();
+      searchInputEl.focus();
+    });
+
+    // initial rendering with all jobs
+    renderJobs(jobs);
+  </script>
+</body>
+</html>
+
